@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import AddUser from './AddUser';
+
 class UserList extends Component {
   state = {
     persons: [],
@@ -33,6 +35,7 @@ class UserList extends Component {
     const { isUserListDisplayed } = this.state;
     return (
       <>
+        <AddUser />
         <button onClick={this.toggleListDisplay}>{isUserListDisplayed ? 'Hide users' : 'Show users'}</button>
         {isUserListDisplayed && this.showUserList()}
       </>
