@@ -4,6 +4,7 @@ import axios from 'axios';
 import { deleteUserData } from '../api/prepareFormData';
 import AddUser from './AddUser';
 
+
 class UserList extends Component {
   state = {
     persons: [],
@@ -14,7 +15,13 @@ class UserList extends Component {
     postal_code: '',
     street: '',
     city: '',
-    age: ''
+    age: '',
+    search: ''
+  }
+
+
+  updateSearch = (event) => {
+    this.setState({ search: event.target.value.trim() });
   }
 
   componentDidMount() {
@@ -31,16 +38,21 @@ class UserList extends Component {
       })
   }
 
-  showUserList = () => (
-    <ul>
-      {this.state.persons.map(person => (
-        <li key={person.id}>
-          {person.last_name}
-          <button onClick={() => this.deleteUser(person.id)}>DELETE</button>
-        </li>
-      ))}
-    </ul>
-  );
+
+  showUserList = () => {
+    const filteredUsers = this.state.persons.filter(
+      (person) => person.last_name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
+    return (
+      <ul>
+        {filteredUsers.map(person => (
+          <li key={person.id}>
+            {person.last_name}
+            <button onClick={() => this.deleteUser(person.id)}>DELETE</button>
+          </li>
+        ))}
+      </ul>
+    )
+  };
 
   toggleListDisplay = () => {
     this.setState({ isUserListDisplayed: !this.state.isUserListDisplayed })
@@ -60,12 +72,14 @@ class UserList extends Component {
 
   render() {
     const { isUserListDisplayed } = this.state;
+
+
     return (
       <>
         <AddUser fetchUserList={this.fetchUserList} />
+         Search Users: <input type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} />
         <button onClick={this.toggleListDisplay}>{isUserListDisplayed ? 'Hide users' : 'Show users'}</button>
         {isUserListDisplayed && (this.showUserList())}
-
       </>
     );
   }
