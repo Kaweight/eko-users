@@ -40,33 +40,37 @@ class AddUser extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="first_name" onChange={e => this.setState({ first_name: e.target.value })} value={this.state.first_name} maxLength="100" />
-        </label>
-        <label>
-          Last Name:
-          <input type="text" name="last_name" onChange={e => this.setState({ last_name: e.target.value })} value={this.state.last_name} maxLength="100" />
-        </label>
-        <label>
-          Postal Code:
-          <input type="text" name="postal_code" onChange={e => this.setState({ postal_code: e.target.value })} value={this.state.postal_code} maxLength="10" />
-        </label>
-        <label>
-          Street:
-          <input type="text" name="street" onChange={e => this.setState({ street: e.target.value })} value={this.state.street} maxLength="100" />
-        </label>
-        <label>
-          City:
-          <input type="text" name="city" onChange={e => this.setState({ city: e.target.value })} value={this.state.city} maxLength="100" />
-        </label>
-        <label>
-          Age:
-          <input type="number" name="age" onChange={e => this.setState({ age: e.target.value })} value={this.state.age} max="200" />
-        </label>
-        <button type="submit">Add</button>
-      </form>
+      <main className="form-signin">
+        <form onSubmit={this.handleSubmit}>
+          <h2 className="h3 mb-3 fw-normal">Signup a new User</h2>
+          <input
+            type="text" name="first_name" placeholder="Name" className="form-control"
+            onChange={e => this.setState({ first_name: e.target.value })}
+            value={this.state.first_name} maxLength="100" />
+
+          <input type="text" name="last_name" placeholder="Surname" className="form-control"
+            onChange={e => this.setState({ last_name: e.target.value })}
+            value={this.state.last_name} maxLength="100" />
+
+          <input type="text" name="postal_code" placeholder="Postal Code" className="form-control"
+            onChange={e => this.setState({ postal_code: e.target.value })}
+            value={this.state.postal_code} maxLength="10" />
+
+          <input type="text" name="street" placeholder="Street" className="form-control"
+            onChange={e => this.setState({ street: e.target.value })}
+            value={this.state.street} maxLength="100" />
+
+          <input type="text" name="city" placeholder="City" className="form-control"
+            onChange={e => this.setState({ city: e.target.value })}
+            value={this.state.city} maxLength="100" />
+
+          <input type="number" name="age" placeholder="Age" className="form-control"
+            onChange={e => this.setState({ age: e.target.value })}
+            value={this.state.age} max="100" />
+
+          <button type="submit" className="btn-add">Add User</button>
+        </form>
+      </main>
     );
   }
 }

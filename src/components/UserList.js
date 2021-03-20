@@ -60,13 +60,14 @@ class UserList extends Component {
       <ul>
         {filteredUsers.map(person => (
           <li key={person.id}>
-            <h3>Name: {person.first_name}</h3>
-            <h3>Last Name: {person.last_name}</h3>
+            <p>Name: <strong>{person.first_name}</strong></p>
+            <p>Surname: <strong>{person.last_name}</strong></p>
             <p>Postal Code: {person.postal_code}</p>
             <p>Street: {person.street}</p>
             <p>City: {person.city}</p>
             <p>Age: {person.age}</p>
-            <button onClick={() => this.deleteUser(person.id)}>DELETE USER</button>
+            <button className="btn-delete"
+              onClick={() => this.deleteUser(person.id)}>DELETE USER</button>
           </li>
         ))}
       </ul>
@@ -92,14 +93,27 @@ class UserList extends Component {
     const { isUserListDisplayed } = this.state;
 
     return (
-      <>
-        minAge: <input type="number" value={this.state.minPersonAge} onChange={this.updateMinPersonAge.bind(this)} minLength="0" />
-        maxAge: <input type="number" value={this.state.maxPersonAge} onChange={this.updateMaxPersonAge.bind(this)} maxLength="150" />
+      <main className="form-signin">
         <AddUser fetchUserList={this.fetchUserList} />
-        Search Users: <input type="text" value={this.state.lastNameFilter} onChange={this.updateLastNameFilter.bind(this)} />
-        <button onClick={this.toggleListDisplay}>{isUserListDisplayed ? 'Hide users' : 'Show users'}</button>
+        {/* <label className="visually-hidden">Search Users: </label> */}
+        <input type="text" name="last-name-filter" placeholder="Search by surname" className="form-control"
+          value={this.state.lastNameFilter}
+          onChange={this.updateLastNameFilter.bind(this)} />
+
+        {/* <label className="visually-hidden">Minimum Age: </label> */}
+        <input type="number" name="min-age-filter" placeholder="Search from the lower age limit" className="form-control"
+          value={this.state.minPersonAge}
+          onChange={this.updateMinPersonAge.bind(this)} minLength="0" />
+
+        {/* <label className="visually-hidden">Maximum Age: </label> */}
+        <input type="number" name="max-age-filter" placeholder="Search to the upper age limit" className="form-control"
+          value={this.state.maxPersonAge}
+          onChange={this.updateMaxPersonAge.bind(this)} maxLength="150" />
+
+        <button type="submit" className="w-100 btn-show"
+          onClick={this.toggleListDisplay}>{isUserListDisplayed ? 'Hide Users' : 'Show Users'}</button>
         {isUserListDisplayed && (this.showUserList())}
-      </>
+      </main>
     );
   }
 }

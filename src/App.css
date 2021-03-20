@@ -1,38 +1,102 @@
+html,
+body {
+  height: 100%;
+}
+
 .App {
   text-align: center;
+  background-image: linear-gradient(315deg, #341f97 0%, #0abde3 74%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  padding-left: 0;
+  list-style-type: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+li {
+  background-color: inherit;
+  box-shadow: 3px 3px 10px #00cfff;
+  border: 1.5px solid white;
+  border-radius: 5px;
+  margin: 10px 0 10px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btn {
+  margin: 10px 0 10px 0;
+}
+
+.btn-show,
+.btn-delete,
+.btn-add {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  border: 2px;
+  border-radius: 5px;
+  color: #107fda;
+}
+
+.btn-delete {
+  width: 50%;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.form-signin .checkbox {
+  font-weight: 400;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input {
+  background-color: inherit;
+  box-shadow: 3px 3px 10px #00cfff;
+  border: 1.5px solid white;
+}
+
+.form-signin input[name="first_name"],
+.form-signin input[name="last-name-filter"] {
+  margin-bottom: 1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[name="last_name"],
+.form-signin input[name="postal_code"],
+.form-signin input[name="street"],
+.form-signin input[name="city"],
+.form-signin input[name="min-age-filter"] {
+  margin-bottom: 1px;
+  margin-top: 1px;
+  border-radius: 0;
+
+}
+
+.form-signin input[name="age"],
+.form-signin input[name="max-age-filter"] {
+  margin-bottom: 10px;
+  margin-top: 1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin input::placeholder {
+  color: white;
 }
