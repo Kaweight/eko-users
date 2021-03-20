@@ -95,17 +95,14 @@ class UserList extends Component {
     return (
       <main className="form-signin">
         <AddUser fetchUserList={this.fetchUserList} />
-        {/* <label className="visually-hidden">Search Users: </label> */}
         <input type="text" name="last-name-filter" placeholder="Search by surname" className="form-control"
           value={this.state.lastNameFilter}
           onChange={this.updateLastNameFilter.bind(this)} />
 
-        {/* <label className="visually-hidden">Minimum Age: </label> */}
         <input type="number" name="min-age-filter" placeholder="Search from the lower age limit" className="form-control"
           value={this.state.minPersonAge}
           onChange={this.updateMinPersonAge.bind(this)} minLength="0" />
 
-        {/* <label className="visually-hidden">Maximum Age: </label> */}
         <input type="number" name="max-age-filter" placeholder="Search to the upper age limit" className="form-control"
           value={this.state.maxPersonAge}
           onChange={this.updateMaxPersonAge.bind(this)} maxLength="150" />
