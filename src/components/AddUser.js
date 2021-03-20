@@ -42,7 +42,7 @@ class AddUser extends Component {
     return (
       <main className="form-signin">
         <form onSubmit={this.handleSubmit}>
-          <h2 className="h3 mb-3 fw-normal">Signup a new User</h2>
+          <h2 className="h3 mb-3 fw-normal">Add a new User</h2>
           <input
             type="text" name="first_name" placeholder="Name" className="form-control"
             onChange={e => this.setState({ first_name: e.target.value })}
