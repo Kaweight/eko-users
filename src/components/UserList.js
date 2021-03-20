@@ -35,7 +35,7 @@ class UserList extends Component {
   }
 
   fetchUserList = () => {
-    axios.get(`http://fronttest.ekookna.pl/`)
+    axios.get(`https://fronttest.ekookna.pl/`)
       .then(res => {
         console.log('res: ', res);
         this.setState({
