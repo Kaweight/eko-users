@@ -79,7 +79,7 @@ class UserList extends Component {
   }
 
   deleteUser = (id) => {
-    axios.post(`http://fronttest.ekookna.pl/user/${id}`, deleteUserData())
+    axios.post(`https://fronttest.ekookna.pl/user/${id}`, deleteUserData())
       .then(res => {
         console.log('res: ', res);
         const newPersons = this.state.persons.filter(person => person.id !== id);

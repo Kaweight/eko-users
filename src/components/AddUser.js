@@ -26,7 +26,7 @@ class AddUser extends Component {
       age: this.state.age
     }
 
-    axios.post(`http://fronttest.ekookna.pl/user`, createUserData(user))
+    axios.post(`https://fronttest.ekookna.pl/user`, createUserData(user))
       .then(res => {
         if (res.status === 200 || res.status === 201) {
           this.setState({ requestSaved: true, error: false });
