@@ -107,7 +107,7 @@ class UserList extends Component {
           value={this.state.maxPersonAge}
           onChange={this.updateMaxPersonAge.bind(this)} maxLength="150" />
 
-        <button type="submit" className="w-100 btn-show"
+        <button type="submit" className="btn-show"
           onClick={this.toggleListDisplay}>{isUserListDisplayed ? 'Hide Users' : 'Show Users'}</button>
         {isUserListDisplayed && (this.showUserList())}
       </main>

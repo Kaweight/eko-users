@@ -41,6 +41,19 @@ li {
   width: 50%;
 }
 
+.btn-show:active,
+.btn-add:active {
+  width: 96%;
+  height: 46px;
+  background-color: rgb(201, 201, 201);
+}
+
+.btn-delete:active {
+  width: 46%;
+  height: 46px;
+  background-color: rgb(201, 201, 201);
+}
+
 .form-signin {
   width: 100%;
   max-width: 330px;
